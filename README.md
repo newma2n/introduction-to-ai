@@ -4,10 +4,10 @@ Repository for the course "Introduction to Artificial Intelligence" at IMT Atlan
 
 n.b. this directory is continuosly updated during the course, therefore always download the latest version the day of the course!
 
---
+
 
 ## Course organisation / Syllabus
---
+
 
 Here is a detailed schedule, session by session: 
 
@@ -51,14 +51,14 @@ Here is a detailed schedule, session by session:
 
 ## What is expected for the Final Project
 
-Short version : **Exploration of different AI approach to play PyRat**
+Short version : **Exploration of different AI approaches to play PyRat**
 
 Long version : this course is mostly based on the final project, and you have a lot of freedom, which we expect you to use. The overarching goal is to explore different . 
 
 We encourage students to get creative and test combinations of the various ideas that we present. Starting from the end of Session 4, you already have enough knowledge to explore different methods to be more efficent in playing PyRat. 
 
-Evaluation in this course 
---
+## Evaluation in this course 
+
 
 There are **short written evaluations** during the first 10 minutes of **each** session starting from session 2. Don't be late!  
 

@@ -59,6 +59,7 @@ We encourage students to get creative and test combinations of the various ideas
 
 ## Evaluation in this course 
 
+First, have a look at the [evaluation sheet](evaluation.pdf).
 
 There are **short written evaluations** during the first 10 minutes of **each** session starting from session 2. Don't be late!  
 

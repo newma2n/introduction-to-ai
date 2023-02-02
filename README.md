@@ -27,7 +27,7 @@ Here is a detailed schedule, session by session:
    3. [Practical session](TP3.ipynb) - UL methods applied to Digits and PyRat
    4. [Project 3](p3) - UL method description and test on simulated data and on Pyrat features
    
-4.  Combinatorial Game Theory
+4. Combinatorial Game Theory
    1. **Short evaluation** on Project 3
    2. [Course](cours4.pdf) 
    3. [Practical session](TP4.ipynb) - exhaustive playout tree search
@@ -48,7 +48,7 @@ Here is a detailed schedule, session by session:
 7. **Student's presentation**  
 
 
-What is expected for the Final roject
+What is expected for the Final Project
 --
 Short version : **Exploration of different AI approach to play PyRat**
 

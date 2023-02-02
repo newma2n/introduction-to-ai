@@ -1,6 +1,6 @@
 # introduction-to-ai
 
-### Repository for the course "Introduction to Artificial Intelligence" at IMT Atlantique
+Repository for the course "Introduction to Artificial Intelligence" at IMT Atlantique
 
 n.b. this directory is continuosly updated during the course, therefore always download the latest version the day of the course!
 --
@@ -48,7 +48,7 @@ Here is a detailed schedule, session by session:
 7. **Student's presentation**  
 
 
-What is expected for the Final Project
+##What is expected for the Final Project
 --
 Short version : **Exploration of different AI approach to play PyRat**
 

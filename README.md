@@ -13,7 +13,7 @@ Here is a detailed schedule, session by session:
 
 1. Introduction to AI
    1. [Course](cours1.pdf) 
-   2. [Practical session](lab1.ipynb) - introduction to numpy and setup of pyrat
+   2. [Practical session](TP0.ipynb) - introduction to numpy and setup of pyrat
    3. [Project 1](p1) - AI application
   
 2. Supervised Learning

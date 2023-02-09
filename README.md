@@ -20,7 +20,7 @@ Here is a detailed schedule, session by session:
    1. **Short evaluation** on Project 1
    2. [Course](cours2.pdf) 
    3. [Practical session](lab2.ipynb) - machine learning using sklearn and test on PyRat Dataset (predict winner and moves to play)
-   4. [Project 2](p2) - SL method description and test on simulated data and on Pyrat Dataset
+   4. [Project 2](topics_p1) - SL method description and test on simulated data and on Pyrat Dataset
    
 3. Unsupervised Learning
    1. **Short evaluation** on Project 2

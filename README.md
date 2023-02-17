@@ -25,7 +25,7 @@ Here is a detailed schedule, session by session:
 3. Unsupervised Learning
    1. **Short evaluation** on Project 2
    2. [Course](session3/course/cours3.pdf) 
-   3. [Practical session](session3/lab/lab3.ipynb) - UL methods applied to Digits and PyRat
+   3. [Practical session](session3/lab/TP2_2023_student.ipynb) - UL methods applied to Digits and PyRat
    4. [Project 3](session3/p3) - UL method description and test on simulated data and on Pyrat features
    
 4. Combinatorial Game Theory

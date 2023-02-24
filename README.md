@@ -31,7 +31,7 @@ Here is a detailed schedule, session by session:
 4. Combinatorial Game Theory
    1. **Short evaluation** on Project 3
    2. [Course](session4/course/cours4.pdf) 
-   3. [Practical session](session4/lab/lab4.ipynb) - exhaustive playout tree search
+   3. [Practical session](session4/lab/tp3.py) - exhaustive playout tree search
    4. Work on final Project
  
 5. Reinforcement Learning
@@ -40,7 +40,7 @@ Here is a detailed schedule, session by session:
    3. Work on final Project
 
 6. Ethics in AI
-   1. [Course](session6/course/cours4.pdf) 
+   1. [Course](session6/course/ethics.pdf) 
    2. [Practical session](session6/lab/lab6.ipynb) 
    3. Work on final Project
    

@@ -41,8 +41,8 @@ Here is a detailed schedule, session by session:
 
 6. Ethics in AI
    1. [Course](session6/course/ethics.pdf) 
-   2. [Practical session](session6/lab/lab6.ipynb) 
-   3. Work on final Project  
+   2. Work on final Project  
+
 7. Work on Final Project
 
 8. **Student's presentation**  

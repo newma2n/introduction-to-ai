@@ -22,29 +22,27 @@ Here is a detailed schedule, session by session:
    3. [Practical session](session2/lab/TP1.ipynb) - machine learning using sklearn and test on PyRat Dataset (predict winner and moves to play)
    4. [Project 2](session2/topics_p1) - SL method description and test on simulated data and on Pyrat Dataset
    
-3. Ethics in AI
-   1. [Course](session6/course/ethics.pdf) 
-   2. [Practical session](session6/lab/lab6.ipynb) 
-   3. Work on final Project
-
-4. Unsupervised Learning
+3. Unsupervised Learning
    1. **Short evaluation** on Project 2
    2. [Course](session3/course/cours3.pdf) 
    3. [Practical session](session3/lab/TP2_2023_student.ipynb) - UL methods applied to Digits and PyRat
    4. [Project 3](session3/p3) - UL method description and test on simulated data and on Pyrat features
    
-5. Combinatorial Game Theory
+4. Combinatorial Game Theory
    1. **Short evaluation** on Project 3
    2. [Course](session4/course/cours4.pdf) 
    3. [Practical session](session4/lab/tp3.py) - exhaustive playout tree search
    4. Work on final Project
  
-6. Reinforcement Learning
+5. Reinforcement Learning
    1. [Course](session5/course/cours5.pdf) 
    2. [Practical session](session5/lab/lab5.ipynb) - PyRat with reinforcement learning
    3. Work on final Project
 
-  
+6. Ethics in AI
+   1. [Course](session6/course/ethics.pdf) 
+   2. [Practical session](session6/lab/lab6.ipynb) 
+   3. Work on final Project  
 7. Work on Final Project
 
 8. **Student's presentation**  

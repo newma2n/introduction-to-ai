@@ -8,12 +8,11 @@ n.b. this directory is continuosly updated during the course, therefore always d
 
 ## Course organisation / Syllabus
 
-
 Here is a detailed schedule, session by session: 
 
 1. Introduction to AI
    1. [Course](session1/course/cours1.pdf) 
-   2. [Practical session](session1/lab/TP0.ipynb) - introduction to numpy and setup of pyrat
+   2. [Practical session](https://github.com/brain-bzh/introduction-to-ai/tree/main/session1/lab/Lab_1.ipynb) - introduction to numpy and setup of pyrat
    3. [Project 1](session1/topics) - AI application
   
 2. Supervised Learning

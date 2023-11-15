@@ -30,7 +30,7 @@ Here is a detailed schedule, session by session:
 4. Combinatorial Game Theory
    1. **Short evaluation** on Project 3
    2. [Course](session4/course/cours4.pdf) 
-   3. [Practical session](session4/lab/tp3.py) - exhaustive playout tree search
+   3. [Practical session](session4/lab/CGT.py) - Playout tree search
    4. Work on final Project
  
 5. Reinforcement Learning

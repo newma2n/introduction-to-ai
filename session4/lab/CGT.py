@@ -15,8 +15,8 @@
     Some functions do not need you to write code, but you should read them carefully to understand what they do.
 
     Here is your mission:
-        1 - Have a quick look at all the functions in this file, to understand what they do.
-        2 - Find the TODOs and fill them.
+        1 - Have a quick look at all the functions in this file and in the utils.py file, to understand what they do.
+        2 - Find the TODOs in this file and fill them.
             Please read the comments carefully, as they contain important information.
             Run the code from time to time and check that the various functions work as expected.
             You can call the functions from the preprocessing function to test them.
@@ -38,7 +38,7 @@ from pyrat import *
 
 # Previously developed functions
 import greedy as opponent
-from tutorial import get_neighbors, locations_to_action
+from utils import bfs, find_route, locations_to_action
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -183,8 +183,8 @@ def simulate_game_up_to_target ( maze:             Union[numpy.ndarray, Dict[int
 
     # Find the shortest path for the player to reach the target
     # We use the BFS provided in the greedy opponent file
-    _, routing_table = opponent.bfs(player_locations[name], maze, target)
-    route = opponent.find_route(routing_table, player_locations[name], target)
+    _, routing_table = bfs(player_locations[name], maze, target)
+    route = find_route(routing_table, player_locations[name], target)
     del route[0]
 
     # Update the configuration of the game until the player reaches the target
@@ -343,8 +343,8 @@ def turn ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, int]]],
         del memory.route[0]
 
     # Move toward it
-    _, routing_table = opponent.bfs(player_locations[name], maze, memory.route[0])
-    route_to_target = opponent.find_route(routing_table, player_locations[name], memory.route[0])
+    _, routing_table = bfs(player_locations[name], maze, memory.route[0])
+    route_to_target = find_route(routing_table, player_locations[name], memory.route[0])
     action = locations_to_action(player_locations[name], route_to_target[1], maze_width)
     return action
 

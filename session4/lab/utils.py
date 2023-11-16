@@ -292,4 +292,25 @@ def locations_to_actions ( locations:  List[int],
     return actions
 
 #####################################################################################################################################################
+
+def get_opponent_name ( teams: Dict[str, List[str]],
+                        name:  str
+                      ) ->     str:
+
+    """
+        Function to return the opponent's name.
+        It assumes that there are only two players in the game, each in a distinct team.
+        In:
+            * teams: Teams of players.
+            * name:  Name of the current player.
+        Out:
+            * opponent_name: Name of the opponent.
+    """
+    
+    # Find the other player
+    opponent_team = [team for team in teams if name not in teams[team]][0]
+    opponent_name = teams[opponent_team][0]
+    return opponent_name
+
+#####################################################################################################################################################
 #####################################################################################################################################################

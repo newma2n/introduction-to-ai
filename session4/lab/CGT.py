@@ -38,7 +38,7 @@ from pyrat import *
 
 # Previously developed functions
 import greedy as opponent
-from utils import bfs, find_route, locations_to_action
+from utils import bfs, find_route, locations_to_action, get_opponent_name
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -242,8 +242,7 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
     """
 
     # Find the opponent's name
-    opponent_team = [team for team in teams if name not in teams[team]][0]
-    opponent_name = teams[opponent_team][0]
+    opponent_name = get_opponent_name(teams, name)
 
     # Initial state of the game
     player_scores = {player: 0 for player in player_locations}

@@ -35,7 +35,7 @@ Here is a detailed schedule, session by session:
  
 5. Reinforcement Learning
    1. [Course](session5/course/cours5.pdf) 
-   2. [Practical session](session5/lab/lab5.ipynb) - PyRat with reinforcement learning
+   2. [Practical session](session5/lab/RL.py) - PyRat with reinforcement learning
    3. Work on final Project
 
 6. Ethics in AI

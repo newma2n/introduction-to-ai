@@ -71,7 +71,7 @@ from utils import get_opponent_name
 OUTPUT_DIRECTORY = os.path.join(os.path.dirname(os.path.realpath(__file__)), "RL")
 MODEL_FILE_NAME = os.path.join(OUTPUT_DIRECTORY, "RL_model.pt")
 OPTIMIZER_FILE_NAME = os.path.join(OUTPUT_DIRECTORY, "RL_optimizer.pt")
-MEMORY_FILE_NAME = os.path.join(OUTPUT_DIRECTORY, "RL_experience.pt")
+EXPERIENCE_FILE_NAME = os.path.join(OUTPUT_DIRECTORY, "RL_experience.pt")
 
 #####################################################################################################################################################
 
@@ -88,8 +88,8 @@ RESET_TRAINING = True
     RL algorithm parameters.
 """
 
-MAX_MEMORY_SIZE = 1000
-MEMORY_MIN_SIZE_FOR_TRAINING = 1000
+MAX_EXPERIENCE_SIZE = 1000
+EXPERIENCE_MIN_SIZE_FOR_TRAINING = 1000
 NB_BATCHES = 16
 BATCH_SIZE = 32
 DISCOUNT_FACTOR = 0.9
@@ -445,8 +445,8 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
     # In train mode, load the experience from previous games (if any)
     memory.experience = []
     if TRAIN_MODEL:
-        if os.path.exists(MEMORY_FILE_NAME):
-            memory.experience = torch.load(MEMORY_FILE_NAME)
+        if os.path.exists(EXPERIENCE_FILE_NAME):
+            memory.experience = torch.load(EXPERIENCE_FILE_NAME)
 
     # We remember the initial cheese count and previous turn scores
     memory.initial_cheese_count = len(cheese)
@@ -497,7 +497,7 @@ def turn ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, int]]],
     if TRAIN_MODEL:
         
         # Remove old experience entries if needed
-        if len(memory.experience) >= MAX_MEMORY_SIZE:
+        if len(memory.experience) >= MAX_EXPERIENCE_SIZE:
             del memory.experience[0]
         
         # Complement the previous turn and initialize the current one
@@ -559,10 +559,10 @@ def postprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, 
             memory.experience[-1]["reward"] = compute_reward(memory.experience[-1]["state"], memory.previous_scores, state, player_scores, name, teams, memory.initial_cheese_count)
             memory.experience[-1]["new_state"] = state
             memory.experience[-1]["over"] = True
-        torch.save(memory.experience, MEMORY_FILE_NAME)
+        torch.save(memory.experience, EXPERIENCE_FILE_NAME)
         
         # Train the model if we have enough memory
-        if len(memory.experience) >= MEMORY_MIN_SIZE_FOR_TRAINING:
+        if len(memory.experience) >= EXPERIENCE_MIN_SIZE_FOR_TRAINING:
             train_model(memory.model, memory.optimizer, memory.experience, possible_actions)
             torch.save(memory.model.state_dict(), MODEL_FILE_NAME)
             torch.save(memory.optimizer.state_dict(), OPTIMIZER_FILE_NAME)

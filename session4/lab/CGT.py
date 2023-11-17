@@ -112,8 +112,8 @@ def get_updated_cheese_and_scores ( cheese:           List[int],
     # Beware: when updating the cheese, a common mistake is to update the cheese list while iterating over it, as it would modify the indices
     # Therefore, make sure you iterate over the original list of cheese, and update the copy of the list
     # In the rules of PyRat, if a player reaches a cheese alone, they get 1 point
-    # If both players reach a cheese at the same time, they get 0.5 points each
-
+    # If both players reach the same cheese simultaneously, they get 0.5 points each
+    
     # Return the updated cheese and scores
     return updated_cheese, updated_scores
 

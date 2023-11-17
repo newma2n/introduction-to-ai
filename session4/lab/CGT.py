@@ -278,6 +278,7 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
                     final_configuration = (state, winner)
                 if winner == name:
                     break
+                continue
 
             # TODO
             # If the game is not over, we explore all possible next targets

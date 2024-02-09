@@ -372,7 +372,7 @@ if __name__ == "__main__":
               "maze_height": 15,
               "mud_percentage": 0.0,
               "nb_cheese": 7,
-              "synchronous": True}
+              "game_mode": "synchronous"}
 
     # Start the game
     game = PyRat(players, **config)

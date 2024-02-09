@@ -47,7 +47,7 @@ MUD_PERCENTAGE = 0.0
 NB_CHEESE = 7
 TURN_TIME = 0.0
 PREPROCESSING_TIME = 0.0
-SYNCHRONOUS = True
+GAME_MODE = "synchronous"
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -88,7 +88,7 @@ def run_one_game ( seed:      int,
               "render_mode": "no_rendering",
               "preprocessing_time": PREPROCESSING_TIME,
               "turn_time": TURN_TIME,
-              "synchronous": True,
+              "game_mode": GAME_MODE,
               "random_seed": seed}
         
     # Start the game

@@ -47,7 +47,7 @@ WALL_PERCENTAGE = 0.0
 NB_CHEESE = 1
 TURN_TIME = 0.0
 PREPROCESSING_TIME = 0.0
-SYNCHRONOUS = True
+GAME_MODE = "synchronous"
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -96,7 +96,7 @@ def run_one_game ( program_1:    types.ModuleType,
               "render_mode": render_mode,
               "preprocessing_time": PREPROCESSING_TIME,
               "turn_time": TURN_TIME,
-              "synchronous": True,
+              "game_mode": GAME_MODE,
               "random_seed": seed}
         
     # Set up the game

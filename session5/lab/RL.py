@@ -616,7 +616,7 @@ if __name__ == "__main__":
             wandb.init(project="PyRat_RL", dir=OUTPUT_DIRECTORY)
         
         # Run multiple games with no GUI
-        config["game_mode"] = "synchronous"
+        config["game_mode"] = "sequential"
         config["preprocessing_time"] = 0.0
         config["turn_time"] = 0.0
         config["render_mode"] = "no_rendering"

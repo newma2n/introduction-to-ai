@@ -115,7 +115,7 @@ NB_EPISODES = 1000
     Wandb parameters.
 """
 
-USE_WANDB = True
+USE_WANDB = False # True # It is a good practice to use WandB to monitor the training. You should try to use it at some point.
 WANDB_KEY_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "wandb.key")
 
 #####################################################################################################################################################

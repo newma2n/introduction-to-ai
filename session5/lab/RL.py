@@ -56,7 +56,6 @@ import sys
 import os
 
 # Previously developed functions
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "lab4"))
 import greedy as opponent
 from utils import get_opponent_name
 

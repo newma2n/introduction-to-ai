@@ -146,6 +146,9 @@ class DQN (torch.nn.Module):
         # Inherit from parent class
         super(DQN, self).__init__()
 
+        # Check if a GPU is available
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
         # Define the layers
         self.layers = torch.nn.Sequential(torch.nn.Flatten(),
                                           torch.nn.Linear(torch.prod(torch.tensor(data_shape)), 32),
@@ -243,6 +246,7 @@ def select_action ( state:              torch.tensor,
 
     # We use the model's prediction as a basis for the action
     with torch.no_grad():
+        model = model.to(model.device)
         model_outputs = model(state.unsqueeze(0))
 
     # We get the best action
@@ -322,14 +326,16 @@ def make_batch ( model:            DQN,
             * data:    Batch of data from the memory.
             * targets: Targets associated with the sampled data.
     """
+    # Check if a GPU is available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Get indices
     batch_size = min(BATCH_SIZE, len(experience))
     indices = random.sample(range(len(experience)), batch_size)
 
     # Create the batch
-    data = torch.zeros(batch_size, *experience[0]["state"].shape)
-    targets = torch.zeros(batch_size, len(possible_actions))
+    data = torch.zeros(batch_size, *experience[0]["state"].shape, device=device)
+    targets = torch.zeros(batch_size, len(possible_actions), device=device)
     for i in range(batch_size):
         
         # Data is the sampled state
@@ -368,6 +374,9 @@ def train_model ( model:            DQN,
     
     # Define the loss function
     loss_function = torch.nn.MSELoss()
+
+    # Convert it to GPU if possible
+    model = model.to(model.device)
 
     # Ensure model is in train mode
     model.train()

@@ -51,7 +51,7 @@ import random
 import numpy
 import shutil
 import tqdm
-import wandb
+# import wandb
 import sys
 import os
 
@@ -444,11 +444,15 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
     memory.model = DQN(state_dimension, actions_dimension)
     if os.path.exists(MODEL_FILE_NAME):
         memory.model.load_state_dict(torch.load(MODEL_FILE_NAME))
+    elif not TRAIN_MODEL:
+        print("Doesn't load a state dict")
     
     # Instanciate an optimizer, initialized in its previous state to preserve momentum (if any)
     memory.optimizer = torch.optim.SGD(memory.model.parameters(), lr=LEARNING_RATE)
     if os.path.exists(OPTIMIZER_FILE_NAME):
         memory.optimizer.load_state_dict(torch.load(OPTIMIZER_FILE_NAME))
+    elif not TRAIN_MODEL:
+        print("Doesn't load a state dict")
 
     # In train mode, load the experience from previous games (if any)
     memory.experience = []

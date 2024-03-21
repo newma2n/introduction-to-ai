@@ -3,8 +3,7 @@
 #####################################################################################################################################################
 
 """
-    This script runs the challenge between the rat and the python program.
-    It is given to you so that you can test your programs before submitting them.
+    This script makes multiple games between two programs, and compares the obtained scores.
     It performs two analyses: a quick average analysis and a formal 1 sample T test.
 """
 
@@ -23,7 +22,7 @@ import types
 import tqdm
 
 # Previously developed functions
-import your_AI as program_1
+import RL as program_1
 import greedy as program_2
 
 #####################################################################################################################################################
@@ -34,7 +33,7 @@ import greedy as program_2
     Number of games to make.
 """
 
-NB_GAMES = 5 # 1000 # 5 if you want to test the script, 1000 if you want to run the challenge in real conditions.
+NB_GAMES = 10
 
 #####################################################################################################################################################
 
@@ -42,12 +41,15 @@ NB_GAMES = 5 # 1000 # 5 if you want to test the script, 1000 if you want to run
     Games configuration.
 """
 
-MAZE_WIDTH = 21
-MAZE_HEIGHT = 15
+MAZE_WIDTH = 10
+MAZE_HEIGHT = 10
 MUD_PERCENTAGE = 0.0
 WALL_PERCENTAGE = 0.0
 CELL_PERCENTAGE = 100.0
-NB_CHEESE = 40
+NB_CHEESE = 15
+TURN_TIME = 0.0
+PREPROCESSING_TIME = 0.0
+GAME_MODE = "synchronous"
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -88,8 +90,11 @@ def run_one_game ( seed:      int,
               "wall_percentage":WALL_PERCENTAGE,
               "nb_cheese": NB_CHEESE,
               "render_mode": "no_rendering",
+              "preprocessing_time": PREPROCESSING_TIME,
+              "turn_time": TURN_TIME,
+              "game_mode": GAME_MODE,
               "random_seed": seed}
-
+        
     # Start the game
     game = PyRat(players, **config)
     stats = game.start()

@@ -56,8 +56,14 @@ import sys
 import os
 
 # Previously developed functions
-import greedy as opponent
-from utils import get_opponent_name
+import sys
+import os
+lab_commons_path = os.path.join(os.getcwd(), "..", "..")
+if lab_commons_path not in sys.path:
+    sys.path.append(lab_commons_path)
+
+import lab_commons.AI.greedy as opponent
+from lab_commons.utils import get_opponent_name
 
 #####################################################################################################################################################
 ############################################################### CONSTANTS & VARIABLES ###############################################################

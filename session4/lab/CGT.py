@@ -37,8 +37,14 @@
 from pyrat import *
 
 # Previously developed functions
-import greedy as opponent
-from utils import bfs, find_route, locations_to_action, get_opponent_name
+import sys
+import os
+lab_commons_path = os.path.join(os.getcwd(), "..", "..")
+if lab_commons_path not in sys.path:
+    sys.path.append(lab_commons_path)
+
+import lab_commons.AI.greedy as opponent
+from lab_commons.utils import bfs, find_route, locations_to_action, get_opponent_name, get_neighbors
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################
@@ -80,6 +86,7 @@ def simulate_opponent ( maze:             Union[numpy.ndarray, Dict[int, Dict[in
     # I.e., if the opponent was to play, where would it go, given the maze, current players' locations, remaining pieces of cheese, etc.
     # As indicated in the documentation above, there are multiple ways of achieving this
     # You can use the turn function of the opponent directly, or you can write your own code to simulate the opponent's behavior
+    # Tip: You can use the function get_neighbors to get the neighboring cells in the maze
     opponent_location = None
 
     # Return the new location of the opponent
@@ -113,7 +120,7 @@ def get_updated_cheese_and_scores ( cheese:           List[int],
     # Therefore, make sure you iterate over the original list of cheese, and update the copy of the list
     # In the rules of PyRat, if a player reaches a cheese alone, they get 1 point
     # If both players reach the same cheese simultaneously, they get 0.5 points each
-    
+
     # Return the updated cheese and scores
     return updated_cheese, updated_scores
 

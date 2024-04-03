@@ -18,8 +18,9 @@ Here is a detailed schedule, session by session:
 2. Supervised Learning
    1. **Short evaluation** on Project 1
    2. [Course](session2/course/cours2.pdf) 
-   3. [Practical session](session2/lab/TP1.ipynb) - machine learning using sklearn and test on PyRat Dataset (predict winner and moves to play)
-   4. [Project 2](session2/topics_p1) - SL method description and test on simulated data and on Pyrat Dataset
+   3. [Practical session](session2/lab/Lab2a.ipynb) - machine learning using sklearn and test on PyRat Dataset (predict winner)
+   4. [Optional Practical session](session2/lab/Lab2b.ipynb) - Deep Learning with pytorch tutorial and tests on PyRat Dataset (learn how to move)
+   5. [Project 2](session2/topics_p1) - SL method description and test on simulated data and on Pyrat Dataset
    
 3. Unsupervised Learning
    1. **Short evaluation** on Project 2
@@ -43,8 +44,9 @@ Here is a detailed schedule, session by session:
    2. Work on final Project  
 
 7. Work on Final Project
+   1. Now is the time to complete [Optional Practical session](session2/lab/Lab2b.ipynb)
 
-8. **Student's presentation**  
+9. **Student's presentation**  
 
 
 ## What is expected for the Final Project

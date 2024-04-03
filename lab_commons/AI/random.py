@@ -17,74 +17,11 @@
 # Import PyRat
 from pyrat import *
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
+# External imports 
+import random
 
-
-########
-# TODO #    Update this constant with the path to the trained model you want to use
-########
-TRAINED_MODEL_PATH = "/home/g20lioi/PyProjects/introduction-to-ai-beta/session2/lab/AI/trained_model_weights.pth"
-#################################################################################################################
-################################################### FUNCTIONS ###################################################
-#################################################################################################################
-
-
-########
-# TODO #   Put here the class of your model as you defined it in Lab2b
-######## 
-class Net(nn.Module):
-    def __init__(self, in_features):
-        super(Net, self).__init__()
-        self.fc1 = nn.Linear(in_features, 512)
-        self.fc2 = nn.Linear(512, 256)
-        self.fc3 = nn.Linear(256, 5)
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return x
-    
-def build_state ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, int]]],
-                  maze_width:       int,
-                  maze_height:      int,
-                  name:             str,
-                  teams:            Dict[str, List[str]],
-                  player_locations: Dict[str, int],
-                  cheese:           List[int]
-                ) ->                torch.tensor:
-
-    """
-        This function builds a state tensor to use as an input for the DQN.
-        Here we assume a 2-player game.
-        In:
-            * maze:             Map of the maze, as data type described by PyRat's "maze_representation" option.
-            * maze_width:       Width of the maze in number of cells.
-            * maze_height:      Height of the maze in number of cells.
-            * name:             Name of the player being trained.
-            * teams:            Recap of the teams of players.
-            * player_locations: Locations for all players in the game.
-            * cheese:           List of available pieces of cheese in the maze.
-        Out:
-            * state: Tensor representing the state of the game.
-    """
-    
-    # Check if a GPU is available
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-    # Function to return an array with the player at the center
-    def _center_maze (location):
-        channel = torch.zeros(maze_height * 2 - 1, maze_width * 2 - 1, device=device)
-        location_row, location_col = location // maze_width, location % maze_width
-        for c in cheese:
-            c_row, c_col = c // maze_width, c % maze_width
-            channel[maze_height - 1 - location_row + c_row, maze_width - 1 - location_col + c_col] = 1
-        return channel
-
-    # A channel centered on the player
-    player_channel = _center_maze(player_locations[name])
-    return player_channel
+# Previously developed functions
+from lab_commons.utils import locations_to_action, get_neighbors
 
 #####################################################################################################################################################
 ##################################################### EXECUTED ONCE AT THE BEGINNING OF THE GAME ####################################################
@@ -100,7 +37,6 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
                     possible_actions: List[str],
                     memory:           threading.local
                   ) ->                None:
-    
 
     """
         This function is called once at the beginning of the game.
@@ -121,27 +57,9 @@ def preprocessing ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, i
             * None.
     """
 
-    ########
-    # TODO #   generate an example of data using the function build_state to get correct input size
-    ######## 
-
-    
-    data = build_state(maze,maze_width,maze_height,name, teams,player_locations, cheese)
-
-    
-    ########
-    # TODO #  Create an instance of your model with as argument the in_features size   
-    ######## 
-    memory.model = Net(data.shape[0]*data.shape[1])
-
-     ########
-    # TODO #  
-    ########
-    #Load the model's state dictionary from the saved file and put it in eval mode 
-    #(the model will be only used for inference, e.g. generate an action given a game configuration)
-
-    memory.model.load_state_dict(torch.load(TRAINED_MODEL_PATH))
-    memory.model.eval()
+    # To store the already visited cells
+    memory.visited_cells = []
+    memory.trajectory = [player_locations[name]]
 
 #####################################################################################################################################################
 ######################################################### EXECUTED AT EACH TURN OF THE GAME #########################################################
@@ -179,13 +97,28 @@ def turn ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, int]]],
         Out:
             * action: One of the possible actions, as given in possible_actions.
     """
-    data = build_state(maze,maze_width,maze_height,name, teams,player_locations, cheese)
-    input_flatten = torch.flatten(data)
-    output = memory.model(input_flatten)
-    action_index = torch.argmax(output)
-    action = possible_actions[action_index]
+
+    # Mark current cell as visited
+    if player_locations[name] not in memory.visited_cells:
+        memory.visited_cells.append(player_locations[name])
+        
+    memory.trajectory.append(player_locations[name])
+
+    # Go to an unvisited neighbor in priority
+    neighbors = get_neighbors(player_locations[name], maze)
+    unvisited_neighbors = [neighbor for neighbor in neighbors if neighbor not in memory.visited_cells]
+    if len(unvisited_neighbors) > 0:
+        neighbor = random.choice(unvisited_neighbors)
+        
+    # If there is no unvisited neighbor, backtrack the trajectory
+    else:
+        _ = memory.trajectory.pop(-1)
+        neighbor = memory.trajectory.pop(-1)
     
-    
+    memory.visited_cells.append(neighbor)
+
+    # Retrieve the corresponding action
+    action = locations_to_action(player_locations[name], neighbor, maze_width)
     return action
 
 #####################################################################################################################################################
@@ -195,15 +128,13 @@ def turn ( maze:             Union[numpy.ndarray, Dict[int, Dict[int, int]]],
 if __name__ == "__main__":
 
     # Map the function to the character
-    players = [{"name": "Supervised Player", "skin": "default", "preprocessing_function": preprocessing, "turn_function": turn}]
+    players = [{"name": "Random 4", "skin": "default", "preprocessing_function": preprocessing, "turn_function": turn}]
 
     # Customize the game elements
-    config = {"maze_width": 5,
-              "maze_height": 7,
+    config = {"maze_width": 15,
+              "maze_height": 11,
               "mud_percentage": 0.0,
-              "cell_percentage": 100.0,
-              "wall_percentage": 0.0,
-              "nb_cheese": 4,
+              "nb_cheese": 10,
               "trace_length": 1000}
 
     # Start the game

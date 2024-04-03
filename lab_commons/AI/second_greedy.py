@@ -14,14 +14,10 @@
 
 # Import PyRat
 from pyrat import *
+from lab_commons.utils import locations_to_action, get_neighbors, find_route, dijkstra
 
 # External imports 
 import numpy
-
-# Previously developed functions
-from AI.utils.tutorial import locations_to_action, get_neighbors
-from AI.utils.BFS import find_route, locations_to_actions
-from AI.utils.dijkstra import dijkstra
 
 #################################################################################################################
 ################################################### FUNCTIONS ###################################################

@@ -32,11 +32,14 @@ import torch
 import math
 import tqdm
 
-# Previously developed functions
-from AI.utils.tutorial import locations_to_action, get_neighbors
-from AI.utils.BFS import find_route
-from AI.utils.dijkstra import dijkstra
+import os
+import sys
 
+lab_commons_path = os.path.join(os.getcwd(), "..", "..")
+if lab_commons_path not in sys.path:
+    sys.path.append(lab_commons_path)
+
+from lab_commons.utils import locations_to_action, get_neighbors, find_route, dijkstra
 
 translate_action = {
         'nothing': 0,

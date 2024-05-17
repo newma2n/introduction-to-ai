@@ -6,8 +6,8 @@ Your task is to develop an AI that plays PyRat and beats as much as possible you
 Your opponent plays using a deterministic strategy: a greedy algorithm, always targetting the closest piece of cheese as the next target. The distance to pieces of cheese is calculated using Manhattan Distance (= L1 distance).
 
 In this challenge, the maze is dimensioned as follows:
-- Its dimensions are 21 by 15,
-- It contains 40 pieces of cheeses,
+- Its dimensions are 7 by 5,
+- It contains 10 pieces of cheeses,
 - It does not contain mud,
 - It does not contain walls (except on the edges, delimiting the maze).
 
@@ -24,7 +24,7 @@ To guide you through this challenge, you will find a challenge folder in the git
 - utils.py: a PyRat helper, containing useful functions for manipulating the maze,
 - greedy.py: the greedy algorithm (you should NOT modify this file).
 
-You must submit your AI before the end of March, 27th. Your submission must include functional code that runs successfully on the first launch: we aim to assess not only the strategic prowess of your AI but also the quality and reliability of your coding practices. In that context, please try to run your code in a clean environment before submitting it, to ensure that all the required code is present.
+You must submit your AI before the date announced on discord. Your submission must include functional code that runs successfully on the first launch: we aim to assess not only the strategic prowess of your AI but also the quality and reliability of your coding practices. In that context, please try to run your code in a clean environment before submitting it, to ensure that all the required code is present.
 You have to submit an AI and all necessary files for the code to run. For instance, it is not necessary to submit the utils.py file if you don't modify it, but, you should submit the checkpoints of your trained algorithm if you develop a Supervised or a Reinforcement Learning algorithm (note: also check that the path to the checkpoint is correct, and will work on our machine).
 
 Best of luck, and may your AI prove to be a formidable contender in the maze!

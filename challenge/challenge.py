@@ -52,12 +52,12 @@ NB_GAMES = 5 # 1000 # 5 if you want to test the script, 1000 if you want to run
     Games configuration.
 """
 
-MAZE_WIDTH = 21
-MAZE_HEIGHT = 15
+MAZE_WIDTH = 7
+MAZE_HEIGHT = 5
 MUD_PERCENTAGE = 0.0
 WALL_PERCENTAGE = 0.0
 CELL_PERCENTAGE = 100.0
-NB_CHEESE = 40
+NB_CHEESE = 10
 
 #####################################################################################################################################################
 ##################################################################### FUNCTIONS #####################################################################

@@ -24,15 +24,17 @@ import tqdm
 
 import sys
 import os
-lab_commons_path = os.path.join(os.getcwd(), "..", "..")
-if lab_commons_path not in sys.path:
-    sys.path.append(lab_commons_path)
+import pathlib
 
-# Import Your AI as the first program
-import your_AI as program_1
+lab_commons_path = os.path.join(pathlib.Path(__file__).parent.resolve(), '../')
+if lab_commons_path not in sys.path:
+    sys.path.append(lab_commons_path) 
 
 # Import the greedy AI as the second program, your opponent
 import lab_commons.AI.greedy as program_2
+
+# Import Your AI as the first program
+import your_AI as program_1
 
 #####################################################################################################################################################
 ############################################################### VARIABLES & CONSTANTS ###############################################################

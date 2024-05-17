@@ -16,6 +16,13 @@
 #####################################################################################################################################################
 ###################################################################### IMPORTS ######################################################################
 #####################################################################################################################################################
+import sys
+import os
+import pathlib
+
+lab_commons_path = os.path.join(pathlib.Path(__file__).parent.resolve(), '../')
+if lab_commons_path not in sys.path:
+    sys.path.append(lab_commons_path) 
 
 # Import PyRat
 from pyrat import *
@@ -24,7 +31,7 @@ from pyrat import *
 import numpy
 
 # Previously developed functions (may be useful)
-from utils import bfs, find_route, locations_to_action
+from lab_commons.utils import bfs, find_route, locations_to_action
 
 #####################################################################################################################################################
 ############################################################### CONSTANTS & VARIABLES ###############################################################
